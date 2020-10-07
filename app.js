@@ -33,6 +33,9 @@ window.addEventListener("load", () => {
                     temperatureDescription.textContent = summary;
                     locationTimezone.textContent = data.timezone;
 
+                    //formaula fro celcius
+                    let celcius = (temperature - 32) * (5 / 9);
+
                     //set Icon
                     setIcons(icon, document.querySelector(".icon"));
 
@@ -40,10 +43,13 @@ window.addEventListener("load", () => {
                     temperatureSection.addEventListener("click", () => {
                         if (temperatureSpan.textContent == "F") {
                             temperatureSpan.textContent = "C";
+                            temperatureDegree.textContent = Math.floor(celcius);
 
                         }
                         else {
                             temperatureSpan.textContent = "F";
+                            temperatureDegree.textContent = temperature;
+
                         }
                     });
                 });
